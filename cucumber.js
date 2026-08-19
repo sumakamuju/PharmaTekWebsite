@@ -1,0 +1,22 @@
+module.exports={
+    default:{
+    require:
+        [
+            "src/stepDefinitions/**/*.ts",
+            "src/hooks/**/*.ts"
+        ],
+    path:
+        [
+        "features/**/*.feature"
+        ],
+    requireModule:
+        [
+            "ts-node/register"
+        ],
+    format:
+    [
+        "pretty"
+    ]
+
+    }
+};
