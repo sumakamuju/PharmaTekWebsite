@@ -1,4 +1,4 @@
-import {Locator, Page} from '@playwright/test';
+import {expect,Locator, Page} from '@playwright/test';
 import { BasePage } from '../BasePage/BasePage';
 
 export class LoginPage extends BasePage{
@@ -10,14 +10,15 @@ export class LoginPage extends BasePage{
     constructor(page: Page){
         super(page);
 
-        this.accountidtextbox=page.getByPlaceholder("Enter Account ID")
+        this.accountidtextbox=page.locator("#accountId");
         this.emailtextbox= page.getByPlaceholder("Enter email");
         this.passwordtextbox= page.getByPlaceholder("Enter password");
         this.signinbutton=page.getByText(" Sign In").last();
     }
     async enteracctid(accountid: string): Promise<void>{
        // await this.page.locator('#accountId').waitFor({ state: 'visible' });
-        await this.accountidtextbox.waitFor({state: 'visible'});
+        await expect(this.accountidtextbox).toBeVisible({ timeout: 30000 });
+
         await this.fill(this.accountidtextbox, accountid );
     }
     async enteremail(email: string): Promise<void>{
@@ -26,7 +27,7 @@ export class LoginPage extends BasePage{
     async enterpsswd(psswd: string): Promise<void>{
         await this.fill(this.passwordtextbox, psswd);
     }
-    async clicksignin(): Promise<void> {
+    async clicksignin(): Promise<void> {  
         await this.click(this.signinbutton);
        // await this.page.pause();
     }
