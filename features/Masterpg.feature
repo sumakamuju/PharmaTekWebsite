@@ -1,7 +1,8 @@
-Feature: : Master Page
-    Background: :
-        Given user clicks on master
-    @TC-1
+@login
+Feature: Master Page
+    Background: Given user clicks on Master 
+    
+    @TC-1 
     Scenario: validate new resource request option
         Then user clicks on new resource request
         Then user redirected to new resource request page

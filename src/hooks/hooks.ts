@@ -4,6 +4,10 @@ import { LoginPage } from '../pages/LoginPage/LoginPage';
 import { Dashboardpage } from '../pages/Dashboardpage/Dashboardpg';
 import { MasterPage } from '../pages/MasterPage/MasterPage';
 import { ConfigManager } from '../config/ConfigManager';
+import { InvoicesManagementPage } from '../pages/InvoicesManagement/InvoicesManagementpg';
+import { TimesheetPage } from '../pages/Timesheets/Timesheetspg';
+import { ReportsPage } from '../pages/Reports/ReportsPage';
+import {SecurityPage} from '../pages/Security/securitypg';
 setDefaultTimeout(120000);
 
 Before(async function () {
@@ -17,14 +21,19 @@ Before(async function () {
     this.loginpage = new LoginPage(this.page);
     this.dashboardpg = new Dashboardpage(this.page);
     this.masterpage = new MasterPage(this.page);
+    this.invoicesmanagementpg= new InvoicesManagementPage(this.page);
+    this.timesheetspg=new TimesheetPage(this.page);
+    this.reportspg=new ReportsPage(this.page);
+    this.securitypg=new SecurityPage(this.page);
+    
+
 });
 
 Before({ tags: '@login' }, async function () {
-
-    await this.loginpage.login(
-        ConfigManager.ACCOUNT_ID, 
-        ConfigManager.EMAIL, 
-        ConfigManager.PASSWORD);
+    await this.page.goto(ConfigManager.BASE_URL,{waitUntil: "load", timeout:90000});
+    await this.loginpage.enteracctid(ConfigManager.ACCOUNT_ID);
+    await this.loginpage.enteremail(ConfigManager.EMAIL);
+    await this.loginpage.enterpsswd(ConfigManager.PASSWORD);
     await this.loginpage.clicksignin();
 
 });

@@ -1,9 +1,6 @@
 Feature: Login functionality
 
- Background:
-        Given user navigates to the login page
-
-    @TC-1
+     @TC-1
     Scenario: Validate Login functionality using valid credentials
         When user enters accountid and email and password
         And user clicks on signin button

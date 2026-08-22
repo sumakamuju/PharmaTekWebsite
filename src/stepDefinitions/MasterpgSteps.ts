@@ -12,11 +12,8 @@ Given ('user clicks on master', async function(){
     this.loginpage = new LoginPage(this.page);
     this.dashboardpg= new Dashboardpage(this.page);
     this.masterpage= new MasterPage(this.page);
-    await this.page.goto(ConfigManager.BASE_URL,{witUntil: 'load', TIMEOUT:90000});
-    await this.loginpage.login(ConfigManager.ACCOUNT_ID,ConfigManager.EMAIL,ConfigManager.PASSWORD);
-    await this.masterpage.master_op();
-    
-})
+    await this.masterpage.master_op();     
+}) 
 Then(' user clicks on new resource request',async function () {
   console.log("STEP 1 STARTED");
   await this.masterpage.new_resrc_req();

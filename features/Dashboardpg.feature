@@ -1,5 +1,6 @@
 @login
 Feature: Dashboard page
+  
   @TC-1
   Scenario: verify dashboard page is displayed
     Then user should be redirected to dashboard page
