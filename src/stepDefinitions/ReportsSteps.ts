@@ -1,5 +1,5 @@
 import { Given, When, Then } from '@cucumber/cucumber';
-import { expect } from '@playwright/test';
+import{ expect } from '@playwright/test';
 import { ConfigManager } from '../config/ConfigManager';
 import { LoginPage } from '../pages/LoginPage/LoginPage';
 import { Dashboardpage } from '../pages/Dashboardpage/Dashboardpg';
@@ -22,7 +22,7 @@ Then('user clicks on PO Metrics', async function () {
 Then('user redirected to PO Metrics page', async function () {
     const pometrics_url = this.page.url();
     console.log("CURRENT URL:", pometrics_url);
-    await this.expect(pometrics_url).toHaveURL("/po-matrics");
+    expect(pometrics_url).toContain("/pharmatekdev/po-matrics");
 });
 
 Then('user clicks on Invoice Tracking', async function () {
@@ -34,7 +34,7 @@ Then('user clicks on Invoice Tracking', async function () {
 Then('user redirected to Invoice Tracking page', async function () {
     const invoicetracking_url = this.page.url();
     console.log("CURRENT URL:", invoicetracking_url);
-    await this.expect(invoicetracking_url).toHaveURL("/invoice-tracking");
+    expect(invoicetracking_url).toContain("/pharmatekdev/invoice-tracking");
 });
 
 Then('user clicks on Profitability By Project', async function () {
@@ -46,7 +46,7 @@ Then('user clicks on Profitability By Project', async function () {
 Then('user redirected to Profitability By Project page', async function () {
     const profitabilitybyproject_url = this.page.url();
     console.log("CURRENT URL:", profitabilitybyproject_url);
-    await this.expect(profitabilitybyproject_url).toHaveURL("/profitability-by-project")
+    expect(profitabilitybyproject_url).toContain("/pharmatekdev/profitability-by-project")
 });
 
 Then('user clicks on Profitability By Resource', async function () {
@@ -59,7 +59,7 @@ Then('user clicks on Profitability By Resource', async function () {
 Then('user redirected to Profitability By Resource page', async function () {
     const profitabilitybyresource_url = this.page.url();
     console.log("CURRENT URL:", profitabilitybyresource_url);
-    await this.expect(profitabilitybyresource_url).toHaveURL("/profitability-by-resources");
+    expect(profitabilitybyresource_url).toContain("/pharmatekdev/profitability-by-resources");
 
 });
 Then('user clicks on Timesheet Tracking', async function () {
@@ -71,7 +71,7 @@ Then('user clicks on Timesheet Tracking', async function () {
 Then('user redirected to Timesheet Tracking page', async function () {
     const timesheettracking_url = this.page.url();
     console.log("CURRENT URL:", timesheettracking_url);
-    await this.expect(timesheettracking_url).toHaveURL("/timesheet-tracking");
+    expect(timesheettracking_url).toContain("/pharmatekdev/timesheet-tracking");
 
 });
 
@@ -84,6 +84,6 @@ Then('user clicks on Expenses Tracking', async function () {
 Then('user redirected to Expenses Tracking page', async function () {
     const expensestracking_url = this.page.url();
     console.log("CURRENT URL:", expensestracking_url);
-    await this.expect(expensestracking_url).toHaveURL("/expenses-tracking");
+    expect(expensestracking_url).toContain("/pharmatekdev/expenses-tracking");
 });
 

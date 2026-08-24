@@ -1,7 +1,7 @@
 @login
 Feature: Security page
 
-    Background: :
+    Background: 
         Given user clicks on Security
     @TC-1
     Scenario: validate Resource Screen Mapping option

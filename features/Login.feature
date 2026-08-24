@@ -1,6 +1,8 @@
 Feature: Login functionality
+    Background:
+        Given user navigates to the login page
 
-     @TC-1
+    @TC-1
     Scenario: Validate Login functionality using valid credentials
         When user enters accountid and email and password
         And user clicks on signin button
@@ -8,7 +10,7 @@ Feature: Login functionality
     @TC-2
     Scenario Outline: Validate login with invalid credentials
         When user enters "<accountid>" and "<email>" and "<password>"
-        And user clicks on signin button
+        And user clicks on sign_in button
         Then user should stay in login page 
    
     Examples:

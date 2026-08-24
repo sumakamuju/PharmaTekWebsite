@@ -4,17 +4,17 @@ import{ expect } from '@playwright/test';
 import { LoginPage } from "../pages/LoginPage/LoginPage";
 import { Dashboardpage } from "../pages/Dashboardpage/Dashboardpg";
 import { MasterPage } from "../pages/MasterPage/MasterPage";
-import { TIMEOUT } from "node:dns";
+
 
 let masterpage: MasterPage;
 
-Given ('user clicks on master', async function(){
+Given('user clicks on Master', async function(){
     this.loginpage = new LoginPage(this.page);
     this.dashboardpg= new Dashboardpage(this.page);
     this.masterpage= new MasterPage(this.page);
     await this.masterpage.master_op();     
-}) 
-Then(' user clicks on new resource request',async function () {
+});
+Then('user clicks on new resource request',async function () {
   console.log("STEP 1 STARTED");
   await this.masterpage.new_resrc_req();
   console.log("CLICKED ON NEW RESOURCE REQUEST");
@@ -23,7 +23,7 @@ Then(' user clicks on new resource request',async function () {
 Then('user redirected to new resource request page', async function () {
    const URL=this.page.url();
   console.log("CURRENT URL: ", URL)
-  await expect(URL).toHaveURL("/resource-request");
+ expect(URL).toContain("/pharmatekdev/resource-request");
 });
 
 Then('user clicks on resources', async function () {
@@ -35,8 +35,8 @@ Then('user clicks on resources', async function () {
 
 Then('user redirected to resources page', async function () {
   const URL1=this.page.url();
-  console.log("CURRENT URL", URL);
-  await expect(URL1).toHaveURL("/resource");
+  console.log("CURRENT URL:", URL1);
+  await expect(URL1).toContain("/pharmatekdev/resource");
 });
 
 Then('user clicks on customers', async function () {
@@ -47,8 +47,8 @@ Then('user clicks on customers', async function () {
 
 Then('user redirected to customers page', async function () {
   const URL2=this.page.url();
-  console.log("CURRENT URL",URL2);
-  await expect(URL2).toHaveURL("/customer");
+  console.log("CURRENT URL:",URL2);
+  await expect(URL2).toContain("/pharmatekdev/customer");
 });
 
 Then('user clicks on vendors', async function () {
@@ -59,8 +59,8 @@ Then('user clicks on vendors', async function () {
 
 Then('user redirected to vendors page', async function () {
   const URL3=this.page.url();
-  console.log("CURRENT URL", URL3);
-  await expect(URL3).toHaveURL("/vendor");
+  console.log("CURRENT URL:", URL3);
+  await expect(URL3).toContain("/pharmatekdev/vendor");
 });
 
 

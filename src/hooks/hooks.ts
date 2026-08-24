@@ -15,7 +15,7 @@ Before(async function () {
     this.context = await this.browser.newContext({ viewport: null, });
     this.page = await this.context.newPage();
 
-    this.page.setDefaultTimeout(30000);
+    this.page.setDefaultTimeout(30000); 
     this.page.setDefaultNavigationTimeout(60000);
 
     this.loginpage = new LoginPage(this.page);
@@ -39,8 +39,8 @@ Before({ tags: '@login' }, async function () {
 });
 
 
-/* After(async function () {
+After(async function () {
     await this.page.close();
     await this.context.close();
     await this.browser.close();
-}); */
+}); 

@@ -1,7 +1,7 @@
 @login
 Feature: Timesheets page
 
-    Background: :
+    Background:
         Given user clicks on Timesheets
     @TC-1
     Scenario: validate Roster option
@@ -11,4 +11,3 @@ Feature: Timesheets page
     Scenario: validate Approvals option
         Then user clicks on Approvals
         Then user redirected to Approvals page
-    

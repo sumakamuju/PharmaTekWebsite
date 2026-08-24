@@ -22,7 +22,7 @@ Then('user clicks on Resource Screen Mapping', async function () {
 Then('user redirected to Resource Screen Mapping page', async function () {
     const resourcescreenmapping_url = this.page.url();
     console.log("CURRENT URL:", resourcescreenmapping_url);
-    await this.expect(resourcescreenmapping_url).toHaveURL("/resource-mapping");
+    expect(resourcescreenmapping_url).toContain("/pharmatekdev/resource-mapping");
 
 
 });

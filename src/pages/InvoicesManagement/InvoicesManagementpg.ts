@@ -15,7 +15,7 @@ export class InvoicesManagementPage extends BasePage{
         this.purchaseorder= this.page.getByRole('link', {name: 'Purchase Order' });
         this.customerinvoice= this.page.getByRole('link', {name: 'Customer Invoice'});
         this.vendorbill= this.page.getByRole('link', {name: 'Vendor Bill'});
-        this.expenses=this.page.getByText("Expenses");
+        this.expenses=this.page.getByText("Expenses").first();
     }
 
     async invoices_management_op(){

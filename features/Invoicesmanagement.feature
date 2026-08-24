@@ -1,7 +1,7 @@
 @login
 Feature: Invoices management page
 
-    Background: :
+    Background: 
         Given user clicks on Invoices management
     @TC-1
     Scenario: validate purchase order option

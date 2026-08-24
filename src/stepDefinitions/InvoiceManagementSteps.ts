@@ -22,7 +22,7 @@ Then('user redirected to purchase order page', async function () {
   console.log("REDIRECTED TO PURCHASE ORDER");
   const purcehaseorder_url=this.page.url();
   console.log("CURRENT URL: ", purcehaseorder_url)
-  await expect(purcehaseorder_url).toHaveURL("/purchase-order");
+  await expect(purcehaseorder_url).toContain("/pharmatekdev/purchase-order");
 });
 
 Then('user clicks on Customer Invoice', async function () {
@@ -34,7 +34,7 @@ Then('user clicks on Customer Invoice', async function () {
 Then('user redirected to Customer Invoice page', async function () {
  const customerinvoice_url= this.page.url();
  console.log("CURRENT URL:", customerinvoice_url)
- await expect(customerinvoice_url).toHaveURL("/customer-invoice")
+ expect(customerinvoice_url).toContain("/pharmatekdev/customer-invoice")
  });
 
 Then('user clicks on vendor bill', async function () {
@@ -46,7 +46,7 @@ Then('user clicks on vendor bill', async function () {
 Then('user redirected to vendor bill page', async function () {
   const vendorbill_url=this.page.url();
   console.log("CURRENT URL:",vendorbill_url );
-  await expect(vendorbill_url).toHaveURL("/vendor-bill");
+  await expect(vendorbill_url).toContain("/pharmatekdev/vendor-bill");
 
 });
 
@@ -59,6 +59,6 @@ Then('user clicks on expenses', async function () {
 Then('user redirected to expenses page', async function () {
   const expenses_url=this.page.url();
   console.log("CURRENT URL:", expenses_url);
-  await expect(expenses_url).toHaveURL("/expenses");
+  expect(expenses_url).toContain("/pharmatekdev/expenses");
 });
 
