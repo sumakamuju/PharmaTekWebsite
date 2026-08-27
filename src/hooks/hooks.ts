@@ -3,6 +3,7 @@ import { Browser, BrowserContext, chromium, Page } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage/LoginPage';
 import { Dashboardpage } from '../pages/Dashboardpage/Dashboardpg';
 import { MasterPage } from '../pages/MasterPage/MasterPage';
+import { NewResourceReqPg } from '../pages/MasterPage/NewResourceRequestpg';
 import { ConfigManager } from '../config/ConfigManager';
 import { InvoicesManagementPage } from '../pages/InvoicesManagement/InvoicesManagementpg';
 import { TimesheetPage } from '../pages/Timesheets/Timesheetspg';
@@ -21,6 +22,7 @@ Before(async function () {
     this.loginpage = new LoginPage(this.page);
     this.dashboardpg = new Dashboardpage(this.page);
     this.masterpage = new MasterPage(this.page);
+    this.newresrcreqpg= new NewResourceReqPg(this.page);
     this.invoicesmanagementpg= new InvoicesManagementPage(this.page);
     this.timesheetspg=new TimesheetPage(this.page);
     this.reportspg=new ReportsPage(this.page);

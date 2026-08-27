@@ -3,6 +3,7 @@ import { Browser, BrowserContext, Page } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage/LoginPage';
 import { Dashboardpage } from '../pages/Dashboardpage/Dashboardpg';
 import { MasterPage } from '../pages/MasterPage/MasterPage';
+import { NewResourceReqPg } from '../pages/MasterPage/NewResourceRequestpg';
 import { InvoicesManagementPage } from '../pages/InvoicesManagement/InvoicesManagementpg';
 import{TimesheetPage} from '../pages/Timesheets/Timesheetspg';
 import { ReportsPage } from '../pages/Reports/ReportsPage';
@@ -19,6 +20,7 @@ export class CustomWorld extends World {
     timesheetspg!: TimesheetPage;
     reportspg!: ReportsPage;
     securitypg!: SecurityPage;
+    newresrcreqpg!: NewResourceReqPg;
 
     constructor(options: IWorldOptions) {
         super(options);
