@@ -4,8 +4,9 @@ import { LoginPage } from '../pages/LoginPage/LoginPage';
 import { Dashboardpage } from '../pages/Dashboardpage/Dashboardpg';
 import { MasterPage } from '../pages/MasterPage/MasterPage';
 import { NewResourceReqPg } from '../pages/MasterPage/NewResourceRequestpg';
+import {ResourcesPage} from '../pages/MasterPage/ResourcesPage';
 import { InvoicesManagementPage } from '../pages/InvoicesManagement/InvoicesManagementpg';
-import{TimesheetPage} from '../pages/Timesheets/Timesheetspg';
+import {TimesheetPage} from '../pages/Timesheets/Timesheetspg';
 import { ReportsPage } from '../pages/Reports/ReportsPage';
 import { SecurityPage } from '../pages/Security/securitypg';
 
@@ -21,9 +22,10 @@ export class CustomWorld extends World {
     reportspg!: ReportsPage;
     securitypg!: SecurityPage;
     newresrcreqpg!: NewResourceReqPg;
+    resourcespg!: ResourcesPage;
 
     constructor(options: IWorldOptions) {
         super(options);
     }
 }
-setWorldConstructor(CustomWorld);
+setWorldConstructor(CustomWorld); 

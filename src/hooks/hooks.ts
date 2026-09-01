@@ -4,6 +4,7 @@ import { LoginPage } from '../pages/LoginPage/LoginPage';
 import { Dashboardpage } from '../pages/Dashboardpage/Dashboardpg';
 import { MasterPage } from '../pages/MasterPage/MasterPage';
 import { NewResourceReqPg } from '../pages/MasterPage/NewResourceRequestpg';
+import { ResourcesPage} from '../pages/MasterPage/ResourcesPage';
 import { ConfigManager } from '../config/ConfigManager';
 import { InvoicesManagementPage } from '../pages/InvoicesManagement/InvoicesManagementpg';
 import { TimesheetPage } from '../pages/Timesheets/Timesheetspg';
@@ -23,6 +24,7 @@ Before(async function () {
     this.dashboardpg = new Dashboardpage(this.page);
     this.masterpage = new MasterPage(this.page);
     this.newresrcreqpg= new NewResourceReqPg(this.page);
+    this.resourcespg=new ResourcesPage(this.page);
     this.invoicesmanagementpg= new InvoicesManagementPage(this.page);
     this.timesheetspg=new TimesheetPage(this.page);
     this.reportspg=new ReportsPage(this.page);
@@ -41,8 +43,16 @@ Before({ tags: '@login' }, async function () {
 });
 
 
-After(async function () {
+ After(async function () 
+{
+    // if(scenario.result?.status === status.){
+      
+    //     const screenshot = await this.page.screenshot({fullPage: true,type: 'png'});
+        
+    //     await this.attach(screenshot,'image/png');
+    // }
+
     await this.page.close();
     await this.context.close();
     await this.browser.close();
-}); 
+});   

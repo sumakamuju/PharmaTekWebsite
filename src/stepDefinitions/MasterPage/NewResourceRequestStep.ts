@@ -4,7 +4,6 @@ import { LoginPage } from "../../pages/LoginPage/LoginPage";
 import { MasterPage } from "../../pages/MasterPage/MasterPage";
 import { NewResourceReqPg } from "../../pages/MasterPage/NewResourceRequestpg";
 import fs from 'fs';
-//import pdfParse from 'pdf-parse';
 import { PDFParse } from 'pdf-parse';
 import * as xlsx from 'xlsx';
 import { ResourceRequestRow } from '../../types/ResourceRequestRow';
@@ -37,6 +36,7 @@ Then('new resource request form to be displayed', async function () {
 
 Then('clicks on cancel or save option', async function () {
   await this.newresrcreqpg.save_data();
+  //await this.newresrcreqpg.cancel_data();
 });
  
 When('user clicks on close option of the form page', async function () {
@@ -67,8 +67,6 @@ Then('verify the downloaded pdf file', async function () {
 
     const pdfBuffer=fs.readFileSync(this.downloadedFilePath);
     
-    // const pdfData= await pdfParse(pdfBuffer); import issue
-    // console.log(pdfData.text);
    
     const parser= new PDFParse({data: pdfBuffer});
     const result= await parser.getText();
@@ -94,9 +92,21 @@ Then('verify the downloaded excel file', async function(){
 
 When('user enters a name or email in the search field', async function () {
   await this.newresrcreqpg.search_field("venkat");
+ // await this.newresrcreqpg.search_field("gmail");
+ });
+ 
+ Then('only the matching records should be displayed in the list', async function () {
+ const search_res=this.newresrcreqpg.searchres;
+  await expect(search_res).toContainText(/venkat/i);
+  
+}); 
+
+When('user searches with mobile number in search field', async function () {
+    const adminMobile = await this.newresrcreqpg.adminmobile.innerText();
+    await this.newresrcreqpg.search_field(adminMobile);
 });
 
-Then('only the matching records should be displayed in the list', async function () {
-  const search_res=this.newresrcreqpg.searchres;
-  await expect(search_res).toContainText(/venkat/i);
-}); 
+Then('no records should be displayed for an invalid search', async function(){
+    const search_res_no_rec=this.newresrcreqpg.searchmobilenumres;
+    await expect(search_res_no_rec).toHaveText("No Records Found");
+});

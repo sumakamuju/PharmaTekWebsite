@@ -21,6 +21,8 @@ export class NewResourceReqPg extends BasePage {
     pdfformat: Locator;
     searchop: Locator;
     searchres: Locator;
+    adminmobile: Locator;
+    searchmobilenumres: Locator;
     newresrcreqformtitle: Locator;
 
     constructor(page: Page) {
@@ -44,7 +46,9 @@ export class NewResourceReqPg extends BasePage {
         this.excelformat = this.page.getByRole('button', { name: ' Excel (.xlsx)' });
         this.pdfformat = this.page.getByRole('button', { name: 'PDF (.pdf)' });
         this.searchop = this.page.getByPlaceholder("Search by name or email...");
-        this.searchres= this.page.locator("tr[role='row']").nth(1);
+        this.searchres= this.page.locator("td[role='cell']").nth(1);
+        this.adminmobile=this.page.getByText("+1 (098) 765-4321");
+        this.searchmobilenumres=this.page.getByText("No Records Found");
     }
 
     async add_resc_req(): Promise<void> {
@@ -105,7 +109,6 @@ export class NewResourceReqPg extends BasePage {
     async search_field(value: string): Promise<void> {
         await this.searchop.fill(value);
     }
-
-
+    
 
 }
