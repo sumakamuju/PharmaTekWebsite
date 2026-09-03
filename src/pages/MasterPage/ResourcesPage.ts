@@ -1,4 +1,3 @@
-import { validateConfiguration } from "@cucumber/cucumber/lib/configuration/validate_configuration";
 import { BasePage } from "../BasePage/BasePage";
 import { Page, Locator } from '@playwright/test';
 import path from 'path';
@@ -66,8 +65,7 @@ export class ResourcesPage extends BasePage {
     actioninactive: Locator;
     actionsync: Locator;
     actionlock: Locator;
-    //readonly mandatoryFields: Record<string,{field: Locator; error: Locator; message: string}>;
-
+    
     constructor(page: Page) {
         super(page);
 
@@ -135,25 +133,8 @@ export class ResourcesPage extends BasePage {
         this.actioninactive = this.page.getByTitle("Inactive").nth(0);
         this.actionsync = this.page.getByTitle("Sync").nth(0);
         this.actionlock = this.page.getByTitle("You cannot delete your own account.");
-        /* for negative testing
-        this.mandatoryFields={'First Name':{field: this.page.getByPlaceholder("Enter First Name"), 
-                                            error: this.page.getByText("First name is required"),
-                                            message: 'First name is required', },
-                              'Last Name' :{field: this.page.getByPlaceholder("Enter Last Name"),
-                                            error: this.page.getByText("Last name is required"),
-                                            message: "Last name is required",},
-           }       */
-
-
-
-
+        
     }
-
-
-    /* async getMandatoryFieldValidationDetails() {
-   return Object.entries(this.mandatoryFields);
-   } */
-
 
     async click_addresource(): Promise<void> {
         await this.addresource.click();
@@ -356,3 +337,18 @@ export class ResourcesPage extends BasePage {
 
 
 }
+/* fOR NEGATIVE TESTING:
+
+        //readonly mandatoryFields: Record<string,{field: Locator; error: Locator; message: string}>;
+
+        this.mandatoryFields={'First Name':{field: this.page.getByPlaceholder("Enter First Name"), 
+                                            error: this.page.getByText("First name is required"),
+                                            message: 'First name is required', },
+                              'Last Name' :{field: this.page.getByPlaceholder("Enter Last Name"),
+                                            error: this.page.getByText("Last name is required"),
+                                            message: "Last name is required",},
+           }       */
+
+    /* async getMandatoryFieldValidationDetails() {
+   return Object.entries(this.mandatoryFields);
+   } */

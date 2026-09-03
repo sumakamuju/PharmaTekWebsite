@@ -1,0 +1,22 @@
+export const newresourcedata={
+    firstname: 'Kishore' ,
+    middlename: 'Reddy',
+    lastname: 'Varakantam',
+    mailid: 'kishore@gmail.com',
+    altmailid: 'kreddy@gmail.com',
+    mobilenumber: '9845601237',
+    phonenumber: '9876543210',
+    engagementtype: '',
+    annualsalary: '',
+    address: 'H.No: 317',
+    strtaddress: 'sai nagar colony',
+    cityname: 'Hyderabad',
+    zipcode: '500092',
+    selectcountry: 'India',
+    bankdetails: 'HDFC bank',
+    accountname: 'Kishore Reddy V',
+    accountnumber: '',
+    routingnumber: '',
+    swiftnumber: '',
+    
+};
